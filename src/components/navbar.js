@@ -50,11 +50,6 @@ const Navbar = () => {
                 Add Menu
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href={"/detail-profile-liked"}>
-                {name ? name : "Profile"}
-              </a>
-            </li>
           </ul>
           <ul>
             <li
