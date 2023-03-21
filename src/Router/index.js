@@ -31,7 +31,14 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/change-password" element={<ChangePassoword />} />
         <Route path="/detail-menu" element={<DetailMenu />} />
-        <Route path="/add-menu" element={<AddMenu />} />
+        <Route
+          path="/add-menu"
+          element={
+            <AuthCheker>
+              <AddMenu />
+            </AuthCheker>
+          }
+        />
         <Route path="/edit-menu/:id" element={<EditMenu />} />
         <Route path="/detail-profile-liked" element={<DetailProfileLiked />} />
         <Route path="/login" element={<Login />} />

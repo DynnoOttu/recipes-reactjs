@@ -1,18 +1,23 @@
 import Footer from "../../components/footer";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteMenu, getMenu } from "../../Storages/Actions/menu";
+
 let url = "https://real-teal-dragonfly-gear.cyclic.app/recipes";
 
 export default function DetailProfileLiked() {
-  const [data, setData] = useState();
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const menu = useSelector((state) => state.menu);
+  const delete_menu = useSelector((state) => state.delete_menu);
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const editRecipes = (id) => {
@@ -25,33 +30,16 @@ export default function DetailProfileLiked() {
   };
 
   useEffect(() => {
-    getData();
+    dispatch(getMenu());
   }, []);
 
-  const getData = () => {
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res);
-        setData(res.data.data);
-      })
-      .then((err) => {
-        console.log(err);
-      });
-  };
+  useEffect(() => {
+    dispatch(getMenu());
+    handleClose();
+  }, [delete_menu.data]);
 
   const deleteData = (id) => {
-    axios
-      .delete(url + `/${id}`)
-      .then((res) => {
-        console.log("Delete data", id);
-        console.log(res);
-        handleClose();
-        getData();
-      })
-      .then((err) => {
-        console.log(err);
-      });
+    dispatch(deleteMenu(id));
   };
 
   return (
@@ -72,7 +60,7 @@ export default function DetailProfileLiked() {
                 <div className="collapse navbar-collapse" id="mynavbar">
                   <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                      <a className="nav-link active" href="javascript:void(0)">
+                      <a className="nav-link active" href={"/home"}>
                         Home
                       </a>
                     </li>
@@ -82,7 +70,7 @@ export default function DetailProfileLiked() {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="javascript:void(0)">
+                      <a className="nav-link" href={"/search-menu"}>
                         Search menu
                       </a>
                     </li>
@@ -176,7 +164,9 @@ export default function DetailProfileLiked() {
           style={{ marginLeft: "130px", marginTop: "73px" }}
         >
           <div className="container">
-            {data?.map((item, index) => (
+            {menu.isLoading && <p class="spinner-border text-warning"></p>}
+            {menu.isLoading && <p>Loading...</p>}
+            {menu.data?.map((item, index) => (
               <div className="row stify-jucontent-start mt-5" key={index + 1}>
                 <div className="col-lg-3">
                   <div className="row mb-4">

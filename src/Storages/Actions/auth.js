@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const loginUser = (data, navigate) => async (dispacth) => {
+export const loginUser = (data, navigate) => async (dispatch) => {
   try {
-    dispacth({ type: "USER_LOGIN_PENDING" });
+    dispatch({ type: "USER_LOGIN_PENDING" });
     const result = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/auth/login`,
       data
@@ -11,10 +11,11 @@ export const loginUser = (data, navigate) => async (dispacth) => {
     localStorage.setItem("token", user.token);
     localStorage.setItem("email", user.email);
     localStorage.setItem("name", user.fullname);
-    dispacth({ type: "USER_LOGIN_SUCCESS", payload: user });
-    navigate("/profile");
+    dispatch({ type: "USER_LOGIN_SUCCESS", payload: user });
+    navigate("/home");
   } catch (err) {
-    console.log("login user error");
+    dispatch({ type: "USER_LOGIN_FAILED", payload: err.response.data.message });
+    console.log("loginUser error");
     console.log(err);
   }
 };

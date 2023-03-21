@@ -1,21 +1,25 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../Storages/Actions/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const user = useSelector((state) => state.user);
 
   const navigate = useNavigate();
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
 
   const postData = (e) => {
-    e.preventDefault("");
+    e.preventDefault();
     console.log(email);
     console.log(password);
-    let data = { email, password };
-    dispacth(loginUser(data, navigate));
+    let data = {
+      email,
+      password,
+    };
+    dispatch(loginUser(data, navigate));
   };
 
   return (
@@ -30,6 +34,7 @@ export default function Login() {
           <div className="row justify-content-center align-items-center inner-row">
             <div className="col-lg-5 col-md-7">
               <div className="form-box">
+                {user.isLoading && <p class="spinner-border text-warning"></p>}
                 <form className="form-login" onSubmit={postData}>
                   <div className="mb-2">
                     <label for="disabledTextInput" className="form-label">

@@ -2,13 +2,18 @@ import Footer from "../../components/footer";
 import profile from "../../assets/assets/img/profile.jpg";
 import { useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addMenu } from "../../Storages/Actions/menu";
 
 let token =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3MzNiZmNmLWExODktNDJhOC1iMDM1LTdkYzE4NDkxYWVjZCIsImVtYWlsIjoidnBtOTgzOTBAenNsc3ouY29tIiwiZnVsbG5hbWUiOiJ2cG0iLCJwaG90byI6bnVsbCwidmVyaWYiOjEsIm90cCI6IjM4NDU0OSIsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3ODgxMjMwNCwiZXhwIjoxNjgwMTI2MzA0fQ.nkWNCU-yvCibUpc7mA9u-_-_7CoqSKwytnDj-EqeYCA";
 
-let url = "https://real-teal-dragonfly-gear.cyclic.app/recipes";
-
 export default function AddMenu() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const add_menu = useSelector((state) => state.add_menu);
+
   const [inputData, setInputData] = useState({
     title: "",
     ingredients: "",
@@ -34,28 +39,20 @@ export default function AddMenu() {
 
   const postForm = (e) => {
     e.preventDefault();
+    let headers = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: token,
+      },
+    };
+
     const formData = new FormData();
     formData.append("title", inputData.title);
     formData.append("ingredients", inputData.ingredients);
     formData.append("category_id", inputData.category_id);
     formData.append("photo", photo);
     console.log(formData);
-    axios
-      .post(url, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: token,
-        },
-      })
-      .then((res) => {
-        console.log("input data success");
-        console.log(res);
-        setAlert(true);
-      })
-      .catch((err) => {
-        console.log("input data fail");
-        console.log(err);
-      });
+    dispatch(addMenu(formData, headers, navigate));
   };
 
   return (
@@ -105,6 +102,9 @@ export default function AddMenu() {
           <div className="add-menu container mt-5">
             <div className="row justify-content-center align-items-center inner-row">
               <div className="col-sm-8">
+                {add_menu.isLoading && (
+                  <p class="spinner-border text-warning"></p>
+                )}
                 <form onSubmit={postForm}>
                   <div className="photo mb-3">
                     <input
@@ -172,6 +172,16 @@ export default function AddMenu() {
                     onClick={() => setAlert(false)}
                   >
                     Input Recipes Success
+                  </div>
+                )}
+
+                {add_menu.errorMessage && (
+                  <div
+                    className="alert alert-danger mt-4"
+                    role="alert"
+                    onClick={() => setAlert(false)}
+                  >
+                    {add_menu.errorMessage}
                   </div>
                 )}
               </div>

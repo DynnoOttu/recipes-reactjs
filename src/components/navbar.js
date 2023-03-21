@@ -46,7 +46,12 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href={"/profile"}>
+              <a className="nav-link" href={"/add-menu"}>
+                Add Menu
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href={"/detail-profile-liked"}>
                 {name ? name : "Profile"}
               </a>
             </li>
