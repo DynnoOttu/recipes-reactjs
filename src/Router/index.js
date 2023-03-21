@@ -20,14 +20,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/search-menu"
-          element={
-            <AuthCheker>
-              <SearchMenu />
-            </AuthCheker>
-          }
-        />
+        <Route path="/search-menu" element={<SearchMenu />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/change-password" element={<ChangePassoword />} />
         <Route path="/detail-menu" element={<DetailMenu />} />
