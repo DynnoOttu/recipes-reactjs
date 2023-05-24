@@ -34,10 +34,10 @@ export default function Login() {
           <div className="row justify-content-center align-items-center inner-row">
             <div className="col-lg-5 col-md-7">
               <div className="form-box">
-                {user.isLoading && <p class="spinner-border text-warning"></p>}
+                {user.isLoading && <p className="spinner-border text-warning"></p>}
                 <form className="form-login" onSubmit={postData}>
                   <div className="mb-2">
-                    <label for="disabledTextInput" className="form-label">
+                    <label htmlFor="disabledTextInput" className="form-label">
                       Email
                     </label>
                     <input
@@ -50,7 +50,7 @@ export default function Login() {
                     />
                   </div>
                   <div className="mb-2">
-                    <label for="disabledTextInput" className="form-label">
+                    <label htmlFor="disabledTextInput" className="form-label">
                       Password
                     </label>
                     <input
@@ -71,7 +71,7 @@ export default function Login() {
                       />
                       <label
                         className="form-check-label"
-                        for="disabledFieldsetCheck"
+                        htmlFor="disabledFieldsetCheck"
                       >
                         I agree to treams & condition
                       </label>
@@ -93,7 +93,7 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </body>
+      </body >
     </>
   );
 }

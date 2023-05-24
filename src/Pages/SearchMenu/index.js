@@ -1,8 +1,100 @@
 import Footer from "../../components/footer";
 import profile from "../../assets/assets/img/profile.jpg";
 import imageSearch from "../../assets/assets/img/chiken.jpg";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function SearchMenu() {
+
+  const [searchText, setSearchText] = useState();
+  const [data, setData] = useState();
+  const [sort, setSort] = useState('');
+  const [currentPage, setCurrentPage] = useState(1)
+  // const [pageLimit] = useState(5)
+
+  const sortOptions = ["asc", "desc"]
+
+  useEffect(() => {
+    getData(1, 5);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getData = async (page, limit) => {
+    var url = `${process.env.REACT_APP_BASE_URL}/recipes?page=${page}&limit=${limit}`;
+    return await axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        setData(res.data.data);
+        setCurrentPage(page)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  function searchRecipes() {
+    var url = `${process.env.REACT_APP_BASE_URL}/recipes?search=` + searchText;
+    axios
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        if (!searchText) {
+          window.location.reload(false);
+        }
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const handleSort = async (e) => {
+    let value = e.target.value;
+    setSort(value);
+    return await
+      axios.get(`${process.env.REACT_APP_BASE_URL}/recipes?sort=${value}&limit=5`)
+        .then((res) => {
+          console.log(res)
+          setData(res.data.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+  }
+
+  const pagination = () => {
+    if (currentPage === 1) {
+      console.log(currentPage)
+      return (
+        <div className="container-fluid" style={{ marginTop: "120px" }}>
+          <div className="row" style={{}}>
+            <div className="col-lg-12 d-flex justify-content-center">
+              <div className="date">Show 1-5 From 10</div>
+              <button onClick={() => getData(currentPage + 1, 5)} className="btn btn-warning btn-sm text-white shadow-none ms-4" style={{ minWidth: "100px", fontSize: "20px" }}>
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    } else if (currentPage !== 1) {
+      return (
+        <div className="container-fluid" style={{ marginTop: "120px" }}>
+          <div className="row" style={{}}>
+            <div className="col-lg-12 d-flex justify-content-center">
+              <button onClick={() => getData(currentPage - 1, 5)} className="btn btn-warning btn-sm text-white shadow-none" style={{ minWidth: "100px", fontSize: "20px" }}>
+                Prev
+              </button>
+              <div className="date ms-4 mt-2">Show 6-10 From 10</div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  }
+
   return (
     <>
       <body className="justify-content-center align-items-center">
@@ -31,9 +123,9 @@ export default function SearchMenu() {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="serachMenu.html">
-                        Search menu
-                      </a>
+                      <Link className="nav-link" to={'/detail-profile-liked'}>
+                        My Recipes
+                      </Link>
                     </li>
                   </ul>
                   <div
@@ -85,16 +177,24 @@ export default function SearchMenu() {
                   <input
                     className="form-control me-2 mr-4"
                     type=""
-                    value="telur gulung"
+                    onChange={(e) => setSearchText(e.target.value)}
                   />
                   <button
                     className="btn btn-outline-success"
                     type="submit"
                     style={{ marginLeft: "20px" }}
+                    onClick={(e) => searchRecipes(e)}
                   >
                     Search
                   </button>
+
                 </form>
+                <select className="btn btn-warning p-3 dropdown-toggle text-white shadow-none" onChange={handleSort} value={sort}>
+                  <option>Sort By: </option>
+                  {sortOptions.map((item, index) => (
+                    <option value={item} key={index}>{item}</option>
+                  ))}
+                </select>
               </div>
             </nav>
             <div className="menu-search d-flex">
@@ -130,187 +230,87 @@ export default function SearchMenu() {
           </div>
         </section>
 
-        <section
-          className="detail-recipes container"
-          style={{ marginTop: "73px" }}
-        >
-          <div className="container-fluid">
-            <div
-              className="row stify-jucontent-start"
-              style={{ marginBottom: "40px" }}
-            >
-              <div className="col-sm-3">
-                <div className="row mb-4">
-                  <div className="col-sm-2">
-                    <img
-                      src={imageSearch}
-                      style={{
-                        width: "260px",
-                        height: "300px",
-                        borderRadius: "5px",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-5">
-                <div className="col-sm-5">
-                  <h5
-                    className="m-0"
-                    style={{
-                      fontFamily: "Poppins",
-                      fontWeight: "500",
-                      fontSize: "24px",
-                    }}
-                  >
-                    Bomb Chicken
-                  </h5>
-                  <p
-                    className="m-0"
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "20px",
-                      color: "#B7B7B7",
-                    }}
-                  >
-                    Ingredients: chicken, dumpling wrap, garlic, spring onion,
-                    soy sauce, black sesame
-                  </p>
-                </div>
-                <div className="col-sm-8 mt-2">
-                  <button
-                    type="button"
-                    className="btn"
-                    style={{
-                      fontSize: "14px",
-                      backgroundColor: "#EFC81A",
-                      color: "#ffff",
-                    }}
-                  >
-                    10 Likes - 12 Comment - 3 Bookmark
-                  </button>
-                  <div className="row">
+        {data?.map((item, index) => (
+          <section
+            className="detail-recipes container"
+            style={{ marginTop: "73px" }} key={index}
+          >
+            <div className="container-fluid">
+              <div
+                className="row stify-jucontent-start"
+                style={{ marginBottom: "40px" }}
+              >
+                <div className="col-sm-3">
+                  <div className="row mb-4">
                     <div className="col-sm-2">
                       <img
-                        className="rounded-circle mt-3"
-                        src={profile}
-                        width="50px"
-                        height="50px"
+                        src={item.photo}
+                        style={{
+                          width: "260px",
+                          height: "300px",
+                          borderRadius: "5px",
+                        }}
                       />
                     </div>
-                    <div className="col-sm-3 justify-content-center mt-4">
-                      <p>Dynno</p>
+                  </div>
+                </div>
+                <div className="col-sm-5">
+                  <div className="col-sm-5">
+                    <h5
+                      className="m-0"
+                      style={{
+                        fontFamily: "Poppins",
+                        fontWeight: "500",
+                        fontSize: "24px",
+                      }}
+                    >
+                      {item.title}
+                    </h5>
+                    <p
+                      className="m-0"
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "20px",
+                        color: "#B7B7B7",
+                      }}
+                    >
+                      {item.ingredients}
+                    </p>
+                  </div>
+                  <div className="col-sm-8 mt-2">
+                    <button
+                      type="button"
+                      className="btn"
+                      style={{
+                        fontSize: "14px",
+                        backgroundColor: "#EFC81A",
+                        color: "#ffff",
+                      }}
+                    >
+                      10 Likes - 12 Comment - 3 Bookmark
+                    </button>
+                    <div className="row">
+                      <div className="col-sm-2">
+                        <img
+                          className="rounded-circle mt-3"
+                          src={profile}
+                          width="50px"
+                          height="50px"
+                        />
+                      </div>
+                      <div className="col-sm-3 justify-content-center mt-4">
+                        <p>{item.creator}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div
-              className="row stify-jucontent-start"
-              style={{ marginBottom: "40px" }}
-            >
-              <div className="col-sm-3">
-                <div className="row mb-4">
-                  <div className="col-sm-2">
-                    <img
-                      src={imageSearch}
-                      style={{
-                        width: "260px",
-                        height: "300px",
-                        borderRadius: "5px",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-5">
-                <div className="col-sm-5">
-                  <h5
-                    className="m-0"
-                    style={{
-                      fontFamily: "Poppins",
-                      fontWeight: "500",
-                      fontSize: "24px",
-                    }}
-                  >
-                    Bomb Chicken
-                  </h5>
-                  <p
-                    className="m-0"
-                    style={{
-                      fontWeight: "500",
-                      fontSize: "20px",
-                      color: "#B7B7B7",
-                    }}
-                  >
-                    Ingredients: chicken, dumpling wrap, garlic, spring onion,
-                    soy sauce, black sesame
-                  </p>
-                </div>
-                <div className="col-sm-8 mt-2">
-                  <button
-                    type="button"
-                    className="btn"
-                    style={{
-                      fontSize: "14px",
-                      backgroundColor: "#EFC81A",
-                      color: "#ffff",
-                    }}
-                  >
-                    10 Likes - 12 Comment - 3 Bookmark
-                  </button>
-                  <div className="row">
-                    <div className="col-sm-2">
-                      <img
-                        className="rounded-circle mt-3"
-                        src={profile}
-                        width="50px"
-                        height="50px"
-                      />
-                    </div>
-                    <div className="col-sm-3 justify-content-center mt-4">
-                      <p>Dynno</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-5 container">
-          <nav aria-label="Page navigation example">
-            <ul className="pagination justify-content-center">
-              <li className="page-item">
-                <a
-                  className="page-link"
-                  href="#"
-                  tabindex="-1"
-                  style={{
-                    border: "none",
-                    borderRadius: "5px",
-                    backgroundColor: "#EFC81A",
-                    color: "#fff",
-                  }}
-                >
-                  Prev
-                </a>
-              </li>
-              <li className="page-item">
-                <a
-                  className="page-link"
-                  href="#"
-                  style={{ border: "none", color: "black" }}
-                >
-                  Show 6-10 from 10
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </section>
-
+          </section>
+        ))}
+        <div>{pagination()}</div>
         <Footer />
+
       </body>
     </>
   );

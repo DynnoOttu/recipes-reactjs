@@ -19,7 +19,7 @@ export default function Home() {
         <div className="content col-10 col-sm-9 d-flex flex-column justify-content-center ">
           <h1 className="display-5 mb-3">Discover Recipe & Delicious Food</h1>
           <div className="search mb-3">
-            <label className="py-2 px-4" for="search">
+            <label className="py-2 px-4" htmlFor="search">
               <i className="fas fa-search"></i>
             </label>
             <input
@@ -35,16 +35,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section class="popular mb-10">
-        <div class="title-section mb-4 mb-md-5">
+      <section className="popular mb-10">
+        <div className="title-section mb-4 mb-md-5">
           <h1>Popular For You!</h1>
         </div>
-        <div class="row">
-          <div class="left col-12 col-md-6">
+        <div className="row">
+          <div className="left col-12 col-md-6">
             <img src={photoForYou} alt="popular Image" />
             <div></div>
           </div>
-          <div class="right col-12 col-md-6">
+          <div className="right col-12 col-md-6">
             <div>
               <h1>Healthy Bone Broth Ramen (Quick & Easy)</h1>
               <hr />
@@ -52,7 +52,7 @@ export default function Home() {
                 Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in
                 a hurry? That’s right!
               </p>
-              <a href="/detail.html" class="btn back-primary text-light">
+              <a href="/detail.html" className="btn back-primary text-light">
                 Learn More
               </a>
             </div>
@@ -60,16 +60,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section class="new mb-10">
-        <div class="title-section mb-4 mb-md-5">
+      <section className="new mb-10">
+        <div className="title-section mb-4 mb-md-5">
           <h1>New Recipe</h1>
         </div>
-        <div class="row">
-          <div class="left col-12 col-md-6">
+        <div className="row">
+          <div className="left col-12 col-md-6">
             <img src={newRecipes} alt="New Recipe Image" />
             <div></div>
           </div>
-          <div class="right col-12 col-md-6">
+          <div className="right col-12 col-md-6">
             <div>
               <h1>Healthy Bone Broth Ramen (Quick & Easy)</h1>
               <hr />
@@ -77,7 +77,7 @@ export default function Home() {
                 Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in
                 a hurry? That’s right!
               </p>
-              <a href="/detail.html" class="btn back-primary text-light">
+              <a href="/detail.html" className="btn back-primary text-light">
                 Learn More
               </a>
             </div>
@@ -85,91 +85,91 @@ export default function Home() {
         </div>
       </section>
 
-      <section class="popular mb-10">
-        <div class="title-section mb-4 mb-md-5">
+      <section className="popular mb-10">
+        <div className="title-section mb-4 mb-md-5">
           <h1>Popular Recipe</h1>
         </div>
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <div class="col">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Chicken <br /> Kare
                   </p>
                   <img
                     src={popularRecipes1}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Chicken Kare"
                   />
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Bomb <br /> Chicken
                   </p>
                   <img
                     src={popularRecipes2}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Bomb Chicken"
                   />
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Banana <br /> Smothie Pop
                   </p>
                   <img
                     src={popularRecipes3}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Banana Smothie Pop"
                   />
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Coffe Lava <br /> Cake
                   </p>
                   <img
                     src={popularRecipes4}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Coffe Lava Cake"
                   />
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Sugar <br /> Salmon
                   </p>
                   <img
                     src={popularRecipes5}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Sugar Salmon"
                   />
                 </div>
               </a>
             </div>
-            <div class="col">
+            <div className="col">
               <a href="/detail.html">
-                <div class="card align-items-center">
-                  <p class="title text-dark">
+                <div className="card align-items-center">
+                  <p className="title text-dark">
                     Indian <br /> Salad
                   </p>
                   <img
                     src={popularRecipes6}
-                    class="card-img-top"
+                    className="card-img-top"
                     alt="Indian Salad"
                   />
                 </div>

@@ -62,7 +62,7 @@ const Navbar = () => {
               style={{ listStyleType: "none", textDecoration: "none" }}
             >
               {name && (
-                <button class="btn btn-warning" onClick={() => logout()}>
+                <button className="btn btn-warning" onClick={() => logout()}>
                   logout
                 </button>
               )}
@@ -70,7 +70,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 

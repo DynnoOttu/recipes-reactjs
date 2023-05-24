@@ -33,7 +33,7 @@ export default function Profile() {
                     <form className="form-login">
                       <div className="mb-2">
                         <label
-                          for="disabledTextInput"
+                          htmlFor="disabledTextInput"
                           className="form-label"
                         ></label>
                         <input
@@ -45,7 +45,7 @@ export default function Profile() {
                         />
                       </div>
                       <div className="mb-2">
-                        <label for="disabledTextInput" className="form-label">
+                        <label htmlFor="disabledTextInput" className="form-label">
                           Email
                         </label>
                         <input

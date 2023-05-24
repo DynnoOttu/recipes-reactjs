@@ -164,7 +164,7 @@ export default function DetailProfileLiked() {
           style={{ marginLeft: "130px", marginTop: "73px" }}
         >
           <div className="container">
-            {menu.isLoading && <p class="spinner-border text-warning"></p>}
+            {menu.isLoading && <p className="spinner-border text-warning"></p>}
             {menu.isLoading && <p>Loading...</p>}
             {menu.data?.map((item, index) => (
               <div className="row stify-jucontent-start mt-5" key={index + 1}>
@@ -296,7 +296,7 @@ export default function DetailProfileLiked() {
         </section>
 
         <Footer />
-      </body>
+      </body >
     </>
   );
 }

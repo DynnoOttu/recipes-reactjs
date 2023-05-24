@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { addMenu } from "../../Storages/Actions/menu";
 
 let token =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImY3MzNiZmNmLWExODktNDJhOC1iMDM1LTdkYzE4NDkxYWVjZCIsImVtYWlsIjoidnBtOTgzOTBAenNsc3ouY29tIiwiZnVsbG5hbWUiOiJ2cG0iLCJwaG90byI6bnVsbCwidmVyaWYiOjEsIm90cCI6IjM4NDU0OSIsImNyZWF0ZWRfYXQiOm51bGwsImlhdCI6MTY3ODgxMjMwNCwiZXhwIjoxNjgwMTI2MzA0fQ.nkWNCU-yvCibUpc7mA9u-_-_7CoqSKwytnDj-EqeYCA";
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZDY4MjgwLTU4NGUtNDk1Yy04MDE2LTEyMmRlMWU3MzMzNiIsImVtYWlsIjoiZHFqNDc4ODNAbmV6aWQuY29tIiwiZnVsbG5hbWUiOiJkcWo0Nzg4MyIsInBob3RvIjpudWxsLCJ2ZXJpZiI6MSwib3RwIjoiNjk3MDgzIiwiY3JlYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjg0NjgwNDAzLCJleHAiOjE2ODU5OTQ0MDN9.BqlfYznX_SjQn6pRoQH82qqOUbqbRzGBtG7BQ9ZLJXg";
 
 export default function AddMenu() {
   const navigate = useNavigate();
@@ -103,7 +103,7 @@ export default function AddMenu() {
             <div className="row justify-content-center align-items-center inner-row">
               <div className="col-sm-8">
                 {add_menu.isLoading && (
-                  <p class="spinner-border text-warning"></p>
+                  <p className="spinner-border text-warning"></p>
                 )}
                 <form onSubmit={postForm}>
                   <div className="photo mb-3">
@@ -189,7 +189,7 @@ export default function AddMenu() {
           </div>
         </section>
         <Footer />
-      </body>
+      </body >
     </>
   );
 }

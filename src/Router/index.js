@@ -33,7 +33,7 @@ function App() {
           }
         />
         <Route path="/edit-menu/:id" element={<EditMenu />} />
-        <Route path="/detail-profile-liked" element={<DetailProfileLiked />} />
+        <Route path="/detail-profile-liked" element={<AuthCheker> <DetailProfileLiked /> </AuthCheker>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
