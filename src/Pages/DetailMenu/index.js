@@ -3,11 +3,43 @@ import profile from '../../assets/assets/img/profile.jpg'
 import chiken from '../../assets/assets/img/chiken.jpg'
 import like from '../../assets/assets/img/icon/like.png'
 import bookmarks from '../../assets/assets/img/icon/bookmarks.png'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 export default function DetailMenu() {
+
+    const name = localStorage.getItem("name");
+    const navigate = useNavigate();
+
+    const { id } = useParams()
+
+    const [data, setData] = useState()
+
+    useEffect(() => {
+        getDataById();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const getDataById = () => {
+        var url = `${process.env.REACT_APP_BASE_URL}/recipes/${id}`
+        axios
+            .get(url)
+            .then((res) => {
+                console.log(res)
+                setData(res.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    console.log(data)
+
+
     return (
         <>
-            <body className="justify-content-center align-items-center">
+            <div className="justify-content-center align-items-center">
                 <div className="">
                     <section className="justify-content-center align-items-center">
                         <nav className="navbar navbar-expand-sm navbar-light">
@@ -18,13 +50,13 @@ export default function DetailMenu() {
                                 <div className="collapse navbar-collapse" id="mynavbar">
                                     <ul className="navbar-nav me-auto">
                                         <li className="nav-item">
-                                            <a className="nav-link active" href="javascript:void(0)">Home</a>
+                                            <Link className="nav-link active" to={'/home'}>Home</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="javascript:void(0)">Add recipe</a>
+                                            <Link className="nav-link" to={'/add-menu'}>Add recipe</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="javascript:void(0)">Search menu</a>
+                                            <Link className="nav-link" to={'/search-menu'}>Search menu</Link>
                                         </li>
                                     </ul>
                                     <div className="image-profile d-flex">
@@ -36,44 +68,45 @@ export default function DetailMenu() {
                         </nav>
                     </section>
                 </div>
-
-                <section className="profile-recipes" style={{ marginTop: "164px" }}>
-                    <div className="container-fluid">
-                        <div className="row" style={{ justifyContent: "center" }}>
-                            <div className="col-sm-10">
-                                <div className="row">
-                                    <div className="col-sm-8" style={{ display: "flex", alignItems: "center" }}>
-                                        <div className="" style={{
-                                            width: "3px",
-                                            height: "70px",
-                                            backgroundColor: "var(--yellow)",
-                                            marginRight: "16px",
-                                            marginTop: "1px"
-                                        }}></div>
-                                        <img src={profile} width="64px" height="64px" />
-                                        <div className="users-profile" style={{ marginLeft: "38px" }}>
-                                            <h5 className="m-0">Dynno</h5>
-                                            <p className="m-0">10 Recipes</p>
+                {data?.map((item, index) => (
+                    <section className="profile-recipes" style={{ marginTop: "164px" }} key={index}>
+                        <div className="container-fluid">
+                            <div className="row" style={{ justifyContent: "center" }}>
+                                <div className="col-sm-10">
+                                    <div className="row">
+                                        <div className="col-sm-8" style={{ display: "flex", alignItems: "center" }}>
+                                            <div className="" style={{
+                                                width: "3px",
+                                                height: "70px",
+                                                backgroundColor: "var(--yellow)",
+                                                marginRight: "16px",
+                                                marginTop: "1px"
+                                            }}></div>
+                                            <img src={profile} width="64px" height="64px" />
+                                            <div className="users-profile" style={{ marginLeft: "38px" }}>
+                                                <h5 className="m-0">{name}</h5>
+                                                <p className="m-0">10 Recipes</p>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-4" style={{ marginTop: "10px" }}>
+                                            <span style={{ justifyContent: "right" }}>{item.posttime}</span>
+                                            <span style={{ justifyContent: "right" }}>20 Likes - 2 Comments</span>
                                         </div>
                                     </div>
-                                    <div className="col-sm-4" style={{ marginTop: "10px" }}>
-                                        <span style={{ justifyContent: "right" }}>21 Februari</span>
-                                        <span style={{ justifyContent: "right" }}>20 Likes - 2 Comments</span>
-                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
-                </section>
+                    </section>
+                ))}
 
-                <section>
-                    <div className="detail-menu">
+                {data?.map((item, index) => (
+                    <div className="detail-menu" key={index}>
                         <div className="row">
                             <div className="col-sm-12">
-                                <h1>Egg Sandwich</h1>
+                                <h1>{item.title}</h1>
                                 <div className="image text-center">
-                                    <img src={chiken} className="rounded" alt="..." style={{
+                                    <img src={item.photo} className="rounded" alt="..." style={{
                                         width: "600px",
                                         height: "600px"
                                     }} />
@@ -81,86 +114,81 @@ export default function DetailMenu() {
                             </div>
                         </div>
                     </div>
-                </section>
-
-                <section>
-                    <div className="container" style={{ marginTop: "109px;" }}>
-                        <div className="ingradients">
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <h4>Ingradients</h4>
-                                    <p>- 2 eggs </p>
-                                    <p>- 2 tbsp mayonnaise</p>
-                                    <p>- 3 slices bread</p>
-                                    <p>- a little butter</p>
-                                    <p>- ⅓ carton of cress</p>
-                                    <p>- 2-3 slices of tomato or a lettuce leaf
-                                        and a slice of ham or cheese</p>
-                                    <p>- crisps , to serve</p>
-                                </div>
-                            </div>
-                            <div className="row mt-5">
-                                <div className="col-sm-2">
-                                    <div className="icons">
-                                        <img src={like} alt="" />
-                                        <img src={bookmarks} alt="" />
+                ))}
+                {data?.map((item, index) => (
+                    <section key={index}>
+                        <div className="container" style={{ marginTop: "109px;" }}>
+                            <div className="ingradients">
+                                <div className="row">
+                                    <div className="col-sm-6">
+                                        <h4>Ingradients</h4>
+                                        <p>{item.ingredients}</p>
                                     </div>
                                 </div>
-                            </div>
+                                <div className="row mt-5">
+                                    <div className="col-sm-2">
+                                        <div className="icons">
+                                            <img src={like} alt="" />
+                                            <img src={bookmarks} alt="" />
+                                        </div>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <section className="">
-                    <div className="container mt-5 border-top border-warning p-5 border-bottom p-5">
-                        <div className="comment">
-                            <div className="row" style={{ justifyContent: "left" }}>
-                                <div className="col-sm-10">
-                                    <div className="row">
-                                        <div className="col-sm-4" style={{ display: "flex", alignItems: "center" }}>
-                                            <img src={profile} width="64px" height="64px" />
-                                            <div className="users-profile" style={{ marginLeft: "38px" }}>
-                                                <h5 className="m-0">Dynno</h5>
-                                                <p className="m-0">10 Recipes</p>
+                    </section>
+                ))}
+                {data?.map((item, index) => (
+                    <section className="" key={index}>
+                        <div className="container mt-5 border-top border-warning p-5 border-bottom p-5">
+                            <div className="comment">
+                                <div className="row" style={{ justifyContent: "left" }}>
+                                    <div className="col-sm-10">
+                                        <div className="row">
+                                            <div className="col-sm-4" style={{ display: "flex", alignItems: "center" }}>
+                                                <img src={profile} width="64px" height="64px" />
+                                                <div className="users-profile" style={{ marginLeft: "38px" }}>
+                                                    <h5 className="m-0">Dynno</h5>
+                                                    <p className="m-0">10 Recipes</p>
+                                                </div>
+                                                <div className="" style={{
+                                                    width: "3px",
+                                                    height: "70px",
+                                                    backgroundColor: "var(--yellow)",
+                                                    marginLeft: "40px",
+                                                    marginTop: "1px"
+                                                }}></div>
                                             </div>
-                                            <div className="" style={{
-                                                width: "3px",
-                                                height: "70px",
-                                                backgroundColor: "var(--yellow)",
-                                                marginLeft: "40px",
-                                                marginTop: "1px"
-                                            }}></div>
-                                        </div>
-                                        <div className="col-sm-6" style={{ marginTop: "15px" }}>
-                                            <span>Wow, I just made this and it was delicious! Thanks for sharing!</span>
+                                            <div className="col-sm-6" style={{ marginTop: "15px" }}>
+                                                <span>Wow, I just made this and it was delicious! Thanks for sharing!</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-sm-10 mt-4">
-                                    <div className="row">
-                                        <div className="col-sm-4" style={{ display: "flex", alignItems: "center" }}>
-                                            <img src={profile} width="64px" height="64px" />
-                                            <div className="users-profile" style={{ marginLeft: "38px" }}>
-                                                <h5 className="m-0">Dynno</h5>
-                                                <p className="m-0">10 Recipes</p>
+                                    <div className="col-sm-10 mt-4">
+                                        <div className="row">
+                                            <div className="col-sm-4" style={{ display: "flex", alignItems: "center" }}>
+                                                <img src={profile} width="64px" height="64px" />
+                                                <div className="users-profile" style={{ marginLeft: "38px" }}>
+                                                    <h5 className="m-0">Dynno</h5>
+                                                    <p className="m-0">10 Recipes</p>
+                                                </div>
+                                                <div className="" style={{
+                                                    width: "3px", height: "70px",
+                                                    backgroundColor: "var(--yellow)",
+                                                    marginLeft: "40px",
+                                                    marginTop: "1px"
+                                                }}></div>
                                             </div>
-                                            <div className="" style={{
-                                                width: "3px", height: "70px",
-                                                backgroundColor: "var(--yellow)",
-                                                marginLeft: "40px",
-                                                marginTop: "1px"
-                                            }}></div>
-                                        </div>
-                                        <div className="col-sm-6" style={{ marginTop: "15px" }}>
-                                            <span style={{ justifyContent: "center" }}>So simple and delicious!</span>
+                                            <div className="col-sm-6" style={{ marginTop: "15px" }}>
+                                                <span style={{ justifyContent: "center" }}>So simple and delicious!</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                ))}
 
                 <section>
                     <div className="container mt-5" >
@@ -184,7 +212,7 @@ export default function DetailMenu() {
                 <Footer />
 
 
-            </body>
+            </div>
         </>
     )
 }

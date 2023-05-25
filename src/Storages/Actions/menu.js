@@ -48,3 +48,25 @@ export const deleteMenu = (id) => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const editMenu = (id, data, navigate) => async (dispatch) => {
+  try {
+    const token = localStorage.getItem("token")
+    if (!token) navigate('/login')
+    let headers = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${token}`
+      }
+    }
+    dispatch({ type: 'EDIT_RECIPES_PENDING' })
+    const result = await axios.put(`${process.env.REACT_APP_BASE_URL}/recipes/${id}`, data, headers)
+    const payload = result.data
+    dispatch({ type: 'EDIT_RECIPES_SUCCESS', payload })
+    navigate('/detail-profile-liked')
+  } catch (err) {
+    dispatch({ type: 'EDIT_RECIPES_FAILED', payload: err.response.data.message })
+    console.log("editMenu error")
+    console.log(err)
+  }
+}

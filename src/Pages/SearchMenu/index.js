@@ -4,20 +4,28 @@ import imageSearch from "../../assets/assets/img/chiken.jpg";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchMenu() {
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload(false);
+    navigate("/login");
+  };
+
+  const name = localStorage.getItem("name");
+  const navigate = useNavigate();
 
   const [searchText, setSearchText] = useState();
   const [data, setData] = useState();
   const [sort, setSort] = useState('');
   const [currentPage, setCurrentPage] = useState(1)
-  // const [pageLimit] = useState(5)
 
-  const sortOptions = ["asc", "desc"]
+  const sortOptions = ["ASCENDING", "DESCENDING"]
 
   useEffect(() => {
     getData(1, 5);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getData = async (page, limit) => {
@@ -60,13 +68,13 @@ export default function SearchMenu() {
           setData(res.data.data)
         })
         .catch((err) => {
-          console.log(err)
+          // console.log(err)
         })
   }
 
   const pagination = () => {
     if (currentPage === 1) {
-      console.log(currentPage)
+      // console.log(currentPage)
       return (
         <div className="container-fluid" style={{ marginTop: "120px" }}>
           <div className="row" style={{}}>
@@ -113,16 +121,6 @@ export default function SearchMenu() {
                 <div className="collapse navbar-collapse" id="mynavbar">
                   <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                      <a className="nav-link active" href="register.html">
-                        Register
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="login.html">
-                        Login
-                      </a>
-                    </li>
-                    <li className="nav-item">
                       <Link className="nav-link" to={'/detail-profile-liked'}>
                         My Recipes
                       </Link>
@@ -142,8 +140,10 @@ export default function SearchMenu() {
                       }}
                     >
                       <li>
-                        <p>Dynno</p>
-                        <a href="">Logout</a>
+                        <p>{name ? name : ""}</p>
+                        {name && (
+                          <a href="" onClick={() => logout()}>Logout</a>
+                        )}
                       </li>
                     </ul>
                   </div>
@@ -187,9 +187,8 @@ export default function SearchMenu() {
                   >
                     Search
                   </button>
-
                 </form>
-                <select className="btn btn-warning p-3 dropdown-toggle text-white shadow-none" onChange={handleSort} value={sort}>
+                <select className="btn btn-warning p-3 dropdown-toggle text-white shadow-none mt-2" onChange={handleSort} value={sort}>
                   <option>Sort By: </option>
                   {sortOptions.map((item, index) => (
                     <option value={item} key={index}>{item}</option>
@@ -243,29 +242,24 @@ export default function SearchMenu() {
                 <div className="col-sm-3">
                   <div className="row mb-4">
                     <div className="col-sm-2">
-                      <img
-                        src={item.photo}
-                        style={{
-                          width: "260px",
-                          height: "300px",
-                          borderRadius: "5px",
-                        }}
-                      />
+                      <Link to={'/detail-menu/' + item.id}>
+                        <img
+                          src={item.photo}
+                          style={{
+                            width: "260px",
+                            height: "300px",
+                            borderRadius: "5px",
+                          }}
+                        />
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-sm-5">
                   <div className="col-sm-5">
-                    <h5
-                      className="m-0"
-                      style={{
-                        fontFamily: "Poppins",
-                        fontWeight: "500",
-                        fontSize: "24px",
-                      }}
-                    >
-                      {item.title}
-                    </h5>
+                    <Link to={'/detail-menu/' + item.id} className="title-link text-black text-decoration-none">
+                      <h3>{item.title}</h3>
+                    </Link>
                     <p
                       className="m-0"
                       style={{
@@ -306,12 +300,13 @@ export default function SearchMenu() {
                 </div>
               </div>
             </div>
-          </section>
-        ))}
+          </section >
+        ))
+        }
         <div>{pagination()}</div>
         <Footer />
 
-      </body>
+      </body >
     </>
   );
 }

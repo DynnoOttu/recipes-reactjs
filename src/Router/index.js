@@ -23,7 +23,7 @@ function App() {
         <Route path="/search-menu" element={<SearchMenu />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/change-password" element={<ChangePassoword />} />
-        <Route path="/detail-menu" element={<DetailMenu />} />
+        <Route path="/detail-menu/:id" element={<DetailMenu />} />
         <Route
           path="/add-menu"
           element={
@@ -39,9 +39,7 @@ function App() {
         <Route
           path="/profile"
           element={
-            <AuthCheker>
-              <Profile />
-            </AuthCheker>
+            <Profile />
           }
         />
       </Routes>

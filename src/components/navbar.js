@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   // const user = useSelector((state)=>state.user.data)
   const name = localStorage.getItem("name");
   const navigate = useNavigate();
@@ -31,14 +31,14 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="mynavbar">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a className="nav-link active" href={"/register"}>
+              {name ? '' : <a className="nav-link" href={"/register"}>
                 Register
-              </a>
+              </a>}
             </li>
             <li className="nav-item">
-              <a className="nav-link" href={"/login"}>
+              {name ? '' : <a className="nav-link" href={"/login"}>
                 Login
-              </a>
+              </a>}
             </li>
             <li className="nav-item">
               <a className="nav-link" href={"/search-menu"}>
@@ -51,9 +51,9 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href={"/profile"}>
-                {name ? name : "Profile"}
-              </a>
+              <Link className="nav-link" to={"/profile"}>
+                {name ? name : ""}
+              </Link>
             </li>
           </ul>
           <ul>

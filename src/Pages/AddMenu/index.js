@@ -3,7 +3,7 @@ import profile from "../../assets/assets/img/profile.jpg";
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addMenu } from "../../Storages/Actions/menu";
 
 let token =
@@ -73,9 +73,9 @@ export default function AddMenu() {
                 <div className="collapse navbar-collapse" id="mynavbar">
                   <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                      <a className="nav-link active" href="javascript:void(0)">
+                      <Link className="nav-link active" to={'/home'}>
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="javascript:void(0)">
@@ -83,9 +83,9 @@ export default function AddMenu() {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="javascript:void(0)">
+                      <Link className="nav-link" to={'/profile'}>
                         Profile
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <div className="image-profile d-flex">

@@ -2,10 +2,11 @@ import Footer from "../../components/footer";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteMenu, getMenu } from "../../Storages/Actions/menu";
+import profile from "../../assets/assets/img/profile.jpg";
 
 let url = "https://real-teal-dragonfly-gear.cyclic.app/recipes";
 
@@ -78,7 +79,7 @@ export default function DetailProfileLiked() {
                   <div className="image-profile d-flex">
                     <div className="line-left"></div>
                     <img
-                      src="assets/img/profile.jpg"
+                      src={profile}
                       alt=""
                       width="64px"
                       height="64px"
@@ -110,7 +111,7 @@ export default function DetailProfileLiked() {
                       }}
                     ></div>
                     <img
-                      src="assets/img/profile.jpg"
+                      src={profile}
                       width="64px"
                       height="64px"
                     />
@@ -167,7 +168,7 @@ export default function DetailProfileLiked() {
             {menu.isLoading && <p className="spinner-border text-warning"></p>}
             {menu.isLoading && <p>Loading...</p>}
             {menu.data?.map((item, index) => (
-              <div className="row stify-jucontent-start mt-5" key={index + 1}>
+              <div className="row stify-jucontent-start mt-5" key={item.id}>
                 <div className="col-lg-3">
                   <div className="row mb-4">
                     <div className="col-2">
@@ -217,19 +218,20 @@ export default function DetailProfileLiked() {
                     >
                       10 Likes - 12 Comment - 3 Bookmark
                     </button>
-                    <button
-                      type="button"
-                      className="btn mt-4"
-                      style={{
-                        fontSize: "14px",
-                        backgroundColor: "#30C0F3",
-                        color: "#ffff",
-                        marginRight: "50px",
-                      }}
-                      onClick={() => editRecipes(item.id)}
-                    >
-                      Edit Menu
-                    </button>
+                    <Link to={`/edit-menu/${item.id}`}>
+                      <button
+                        type="button"
+                        className="btn mt-4"
+                        style={{
+                          fontSize: "14px",
+                          backgroundColor: "#30C0F3",
+                          color: "#ffff",
+                          marginRight: "50px",
+                        }}
+                      >
+                        Edit Menu
+                      </button>
+                    </Link>
                     <button
                       type="button"
                       className="btn mt-4"
