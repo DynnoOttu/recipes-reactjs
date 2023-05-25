@@ -144,15 +144,13 @@ export default function Profile() {
                           style={{ fontFamily: "Poppins", color: "#696F79" }}
                         />
                       </div>
-                      <a
+                      <button
                         type="submit"
                         className="btn button-input"
-                        data-bs-toggle="modal"
-                        data-bs-target="#myModal"
                         style={{ paddingTop: "18px" }}
                       >
                         Update Profile
-                      </a>
+                      </button>
                       <p className="link-update-profile">
                         Change Password? Click Here{" "}
                         <span>
