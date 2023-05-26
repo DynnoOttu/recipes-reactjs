@@ -86,7 +86,7 @@ export default function Profile() {
                   <div className="image-profile d-flex">
                     <div className="line-left"></div>
                     <img
-                      src={profile}
+                      src={user_photo ? user_photo : profile}
                       alt=""
                       width="64px"
                       height="64px"
@@ -119,29 +119,20 @@ export default function Profile() {
                       <div className="col-lg-12 col-md-6 mt-5 mb-5 text-center">
                         <img src={currentPhoto || user_photo} alt="" className="rounded-circle" style={{ maxWidth: "250px" }} />
                       </div>
-                      <input style={{ marginLeft: '109px' }} type="file" required onChange={handlePhoto} />
+                      <input style={{ marginLeft: '109px' }} type="file" onChange={handlePhoto} />
                       <div className="mb-2">
                         <label
                           htmlFor="disabledTextInput"
                           className="form-label"
-                          placeholder={name}
                         >Fullname</label>
                         <input
                           type="text"
                           id="disabledTextInput"
                           className="form-control"
                           style={{ fontFamily: "Poppins", color: "#696F79" }}
-                        />
-                      </div>
-                      <div className="mb-2">
-                        <label htmlFor="disabledTextInput" className="form-label">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="disabledTextInput"
-                          className="form-control"
-                          style={{ fontFamily: "Poppins", color: "#696F79" }}
+                          onChange={handleChange}
+                          name="fullname"
+                          value={updateData.fullname}
                         />
                       </div>
                       <button

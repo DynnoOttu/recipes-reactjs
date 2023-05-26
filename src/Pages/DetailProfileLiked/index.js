@@ -11,6 +11,10 @@ import profile from "../../assets/assets/img/profile.jpg";
 let url = "https://real-teal-dragonfly-gear.cyclic.app/recipes";
 
 export default function DetailProfileLiked() {
+
+
+  const photoUser = localStorage.getItem("photo");
+
   const [show, setShow] = useState(false);
   const [selected, setSelected] = useState();
   const handleClose = () => setShow(false);
@@ -79,7 +83,7 @@ export default function DetailProfileLiked() {
                   <div className="image-profile d-flex">
                     <div className="line-left"></div>
                     <img
-                      src={profile}
+                      src={photoUser ? photoUser : profile}
                       alt=""
                       width="64px"
                       height="64px"
@@ -111,7 +115,7 @@ export default function DetailProfileLiked() {
                       }}
                     ></div>
                     <img
-                      src={profile}
+                      src={photoUser ? photoUser : profile}
                       width="64px"
                       height="64px"
                     />

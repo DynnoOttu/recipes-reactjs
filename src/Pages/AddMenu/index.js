@@ -14,6 +14,8 @@ export default function AddMenu() {
   const dispatch = useDispatch();
   const add_menu = useSelector((state) => state.add_menu);
 
+  const photoUser = localStorage.getItem("photo");
+
   const [inputData, setInputData] = useState({
     title: "",
     ingredients: "",
@@ -90,7 +92,7 @@ export default function AddMenu() {
                   </ul>
                   <div className="image-profile d-flex">
                     <div className="line-left"></div>
-                    <img src={profile} alt="" width="64px" height="64px" />
+                    <img src={photoUser ? photoUser : profile} alt="" width="64px" height="64px" />
                   </div>
                 </div>
               </div>

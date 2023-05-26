@@ -11,6 +11,7 @@ export const loginUser = (data, navigate) => async (dispatch) => {
     localStorage.setItem("token", user.token);
     localStorage.setItem("email", user.email);
     localStorage.setItem("name", user.fullname);
+    localStorage.setItem("photo", user.photo);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: user });
     navigate("/home");
   } catch (err) {

@@ -7,12 +7,14 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function SearchMenu() {
-
+  const name = localStorage.getItem("name");
+  const photo = localStorage.getItem("photo");
   const [searchText, setSearchText] = useState();
   const [data, setData] = useState();
   const [sort, setSort] = useState('');
   const [currentPage, setCurrentPage] = useState(1)
-  // const [pageLimit] = useState(5)
+
+  const navigate = useNavigate();
 
   const sortOptions = ["asc", "desc"]
 
@@ -64,6 +66,12 @@ export default function SearchMenu() {
           console.log(err)
         })
   }
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload(false);
+    navigate("/login");
+  };
 
 
   const pagination = () => {
@@ -129,7 +137,7 @@ export default function SearchMenu() {
                   style={{ marginRight: "70p" }}
                 >
                   <div className="line-left"></div>
-                  <img src={profile} alt="" width="64px" height="64px" />
+                  <img src={photo ? photo : profile} alt="" width="64px" height="64px" />
                   <ul
                     style={{
                       listStyle: "none",
@@ -284,7 +292,7 @@ export default function SearchMenu() {
                     <div className="col-sm-2">
                       <img
                         className="rounded-circle mt-3"
-                        src={profile}
+                        src={photo}
                         width="50px"
                         height="50px"
                       />
