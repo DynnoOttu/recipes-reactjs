@@ -115,14 +115,14 @@ REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
  
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992174/screenshot%20recipes-ReactJs/login_p9btbe.png" alt="Login Page" width=100%></td>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404176/porto/Recipenation/register_hpmmya.png" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992348/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-register-2023-06-06-03_12_09_pnwvc1.png" width=100%/></td>
   </tr>
    <tr>
     <td>Login Page</td>
     <td>Register Page</td>
   </tr>
   <tr>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404193/porto/Recipenation/homepage_qihdff.png" alt="landing" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992431/screenshot%20recipes-ReactJs/landing_page_squqbx.png" alt="landing" width=100%></td>
     <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404173/porto/Recipenation/searching_haatpd.png" alt="Search" width=100%/></td>
   </tr>
   <tr>
