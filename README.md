@@ -3,9 +3,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="">
-    <img src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685991518/screenshot%20recipes-ReactJs/logo_qrorgc_ybd4m9.svg" alt="Logo" width="150px">
-  </a>
 
   <h3 align="center">Recipes Web</h3>
 </div>
