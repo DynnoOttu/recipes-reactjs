@@ -2,19 +2,23 @@ import axios from "axios";
 
 export const addMenu = (data, headers, navigate) => async (dispatch) => {
   try {
-    dispatch({ type: "ADD_MENU_PENDING" });
-    const result = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/recipes`,
-      data,
-      headers
-    );
-    const payload = result.data;
-    dispatch({ type: "ADD_MENU_SUCCESS", payload });
-    navigate("/detail-profile-liked");
+    const token = localStorage.getItem("token")
+    if (!token) navigate('/login')
+    let headers = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${token}`
+      }
+    }
+    dispatch({ type: 'ADD_MENU_PENDING' })
+    const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/recipes`, data, headers)
+    const payload = result.data
+    dispatch({ type: 'ADD_MENU_SUCCESS', payload })
+    navigate('/search-menu')
   } catch (err) {
-    dispatch({ type: "ADD_MENU_FAILED", payload: err.response.data.message });
-    console.log("addMenu error");
-    console.log(err);
+    dispatch({ type: 'ADD_MENU_FAILED', payload: err.response.data.message })
+    console.log("addMenu error")
+    console.log(err)
   }
 };
 

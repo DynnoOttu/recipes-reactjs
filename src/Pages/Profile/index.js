@@ -117,7 +117,7 @@ export default function Profile() {
                   <div className="form-box">
                     <form className="form-login" onSubmit={updateProfile}>
                       <div className="col-lg-12 col-md-6 mt-5 mb-5 text-center">
-                        <img src={currentPhoto || user_photo} alt="" className="rounded-circle" style={{ maxWidth: "250px" }} />
+                        <img src={currentPhoto || user_photo} alt="" className="rounded-circle" style={{ maxWidth: "350px" }} />
                       </div>
                       <input style={{ marginLeft: '109px' }} type="file" onChange={handlePhoto} />
                       <div className="mb-2">

@@ -292,7 +292,7 @@ export default function SearchMenu() {
                     <div className="col-sm-2">
                       <img
                         className="rounded-circle mt-3"
-                        src={photo}
+                        src={item.photo_users}
                         width="50px"
                         height="50px"
                       />

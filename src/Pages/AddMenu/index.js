@@ -6,56 +6,49 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { addMenu } from "../../Storages/Actions/menu";
 
-let token =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZDY4MjgwLTU4NGUtNDk1Yy04MDE2LTEyMmRlMWU3MzMzNiIsImVtYWlsIjoiZHFqNDc4ODNAbmV6aWQuY29tIiwiZnVsbG5hbWUiOiJkcWo0Nzg4MyIsInBob3RvIjpudWxsLCJ2ZXJpZiI6MSwib3RwIjoiNjk3MDgzIiwiY3JlYXRlZF9hdCI6bnVsbCwiaWF0IjoxNjg0NjgwNDAzLCJleHAiOjE2ODU5OTQ0MDN9.BqlfYznX_SjQn6pRoQH82qqOUbqbRzGBtG7BQ9ZLJXg";
 
 export default function AddMenu() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const add_menu = useSelector((state) => state.add_menu);
-
   const photoUser = localStorage.getItem("photo");
+
 
   const [inputData, setInputData] = useState({
     title: "",
     ingredients: "",
-    category_id: 1,
-  });
-  const [photo, setPhoto] = useState();
-  const [alert, setAlert] = useState(false);
+    category_id: 1
+  })
+
+  const profileText = "Test Props"
+
+  const [photo, setPhoto] = useState()
+  const [alert, setAlert] = useState(false)
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     setInputData({
       ...inputData,
-      [e.target.name]: e.target.value,
-    });
-  };
+      [e.target.name]: e.target.value
+    })
+  }
 
   const handlePhoto = (e) => {
-    setPhoto(e.target.files[0]);
-  };
-
-  // const alertTime = () => {
-  //     setTimeout(setAlert(false), 3000)
-  // }
+    setPhoto(e.target.files[0])
+    console.log(e.target.files[0])
+  }
 
   const postForm = (e) => {
-    e.preventDefault();
-    let headers = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: token,
-      },
-    };
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append("title", inputData.title)
+    formData.append("ingredients", inputData.ingredients)
+    formData.append("category_id", inputData.category_id)
+    formData.append("photo", photo)
+    console.log(formData)
 
-    const formData = new FormData();
-    formData.append("title", inputData.title);
-    formData.append("ingredients", inputData.ingredients);
-    formData.append("category_id", inputData.category_id);
-    formData.append("photo", photo);
-    console.log(formData);
-    dispatch(addMenu(formData, headers, navigate));
-  };
+    dispatch(addMenu(formData, navigate))
+  }
+
 
   return (
     <>
@@ -104,7 +97,7 @@ export default function AddMenu() {
           <div className="add-menu container mt-5">
             <div className="row justify-content-center align-items-center inner-row">
               <div className="col-sm-8">
-                {add_menu.isLoading && (
+                {addMenu.isLoading && (
                   <p className="spinner-border text-warning"></p>
                 )}
                 <form onSubmit={postForm}>
@@ -177,13 +170,13 @@ export default function AddMenu() {
                   </div>
                 )}
 
-                {add_menu.errorMessage && (
+                {addMenu.errorMessage && (
                   <div
                     className="alert alert-danger mt-4"
                     role="alert"
                     onClick={() => setAlert(false)}
                   >
-                    {add_menu.errorMessage}
+                    {addMenu.errorMessage}
                   </div>
                 )}
               </div>
