@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 
 export default function DetailMenu() {
-
+    const photo = localStorage.getItem("photo");
     const name = localStorage.getItem("name");
     const navigate = useNavigate();
 
@@ -61,7 +61,7 @@ export default function DetailMenu() {
                                     </ul>
                                     <div className="image-profile d-flex">
                                         <div className="line-left"></div>
-                                        <img src={profile} alt="" width="64px" height="64px" />
+                                        <img src={photo ? photo : profile} alt="" width="64px" height="64px" />
                                     </div>
                                 </div>
                             </div>
@@ -82,10 +82,9 @@ export default function DetailMenu() {
                                                 marginRight: "16px",
                                                 marginTop: "1px"
                                             }}></div>
-                                            <img src={profile} width="64px" height="64px" />
+                                            <img src={photo ? photo : profile} width="64px" height="64px" />
                                             <div className="users-profile" style={{ marginLeft: "38px" }}>
                                                 <h5 className="m-0">{name}</h5>
-                                                <p className="m-0">10 Recipes</p>
                                             </div>
                                         </div>
                                         <div className="col-sm-4" style={{ marginTop: "10px" }}>
