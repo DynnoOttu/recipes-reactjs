@@ -162,9 +162,9 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Recipenation`](https://github.com/DynnoOttu/Recipes-API)
+:rocket: [`Backend Recipes`](https://github.com/DynnoOttu/Recipes-API)
 
-:rocket: [`Frontend Recipenation`](https://github.com/DynnoOttu/recipes-reactjs)
+:rocket: [`Frontend Recipes Web`](https://github.com/DynnoOttu/recipes-reactjs)
 
 :rocket: [`API`](https://real-teal-dragonfly-gear.cyclic.app)
 
