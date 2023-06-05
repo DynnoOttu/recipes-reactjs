@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404167/porto/Recipenation/logo_qrorgc.svg" alt="Logo" width="150px">
+    <img src="(https://res.cloudinary.com/dzs9aijqab/image/upload/v1685991518/screenshot%20recipes-ReactJs/logo_qrorgc_ybd4m9.svg)" alt="Logo" width="150px">
   </a>
 
   <h3 align="center">Recipes Web</h3>
@@ -43,7 +43,7 @@
 
 ## About The Project
 
-**Recipenation** is a website that can help users to create their recipe creations by being able to share them with all.
+**Recipes Web** is website to help users who want to find recipes for food or drinks.
 
 ### Built With
 
@@ -71,18 +71,18 @@ Before going to the installation stage there are some software that must be inst
 
 ### Installation
 
-If you want to run this project locally, I recommend you to configure the [back-end](https://github.com/ilhamyusuf27/rest-api-cafe-bunga) first before configuring this repo front-end.
+If you want to run this project locally, I recommend you to configure the [back-end](https://github.com/DynnoOttu/Recipes-API.git) first before configuring this repo front-end.
 
 - Clone the repo
 
 ```
-git clone https://github.com/ilhamyusuf27/React-FrontEnd-Recipenation.git
+git clone [https://github.com/DynnoOttu/recipes-reactjs.git]
 ```
 
 - Go To Folder Repo
 
 ```
-cd React-FrontEnd-Recipenation
+cd recipes-reactjs
 ```
 
 - Install Module
@@ -102,7 +102,7 @@ npm install
 Create .env file in your root project folder.
 
 ```
-REACT_APP_BASE_URL = https://recipenation-app.herokuapp.com/
+REACT_APP_BASE_URL =[ https://recipenation-app.herokuapp.com/](https://real-teal-dragonfly-gear.cyclic.app)
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
