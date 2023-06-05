@@ -76,7 +76,7 @@ If you want to run this project locally, I recommend you to configure the [back-
 - Clone the repo
 
 ```
-git clone [https://github.com/DynnoOttu/recipes-reactjs.git]
+git clone https://github.com/DynnoOttu/recipes-reactjs.git
 ```
 
 - Go To Folder Repo
@@ -102,7 +102,7 @@ npm install
 Create .env file in your root project folder.
 
 ```
-REACT_APP_BASE_URL =[ https://recipenation-app.herokuapp.com/](https://real-teal-dragonfly-gear.cyclic.app)
+REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -114,7 +114,7 @@ REACT_APP_BASE_URL =[ https://recipenation-app.herokuapp.com/](https://real-teal
 <table>
  
   <tr>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404177/porto/Recipenation/login_mvxsrk.png" alt="Login Page" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992174/screenshot%20recipes-ReactJs/login_p9btbe.png" alt="Login Page" width=100%></td>
     <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404176/porto/Recipenation/register_hpmmya.png" width=100%/></td>
   </tr>
    <tr>
