@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="(https://res.cloudinary.com/dzs9aijqab/image/upload/v1685991518/screenshot%20recipes-ReactJs/logo_qrorgc_ybd4m9.svg)" alt="Logo" width="150px">
+    <img src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685991518/screenshot%20recipes-ReactJs/logo_qrorgc_ybd4m9.svg" alt="Logo" width="150px">
   </a>
 
   <h3 align="center">Recipes Web</h3>
@@ -123,7 +123,7 @@ REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
   </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992431/screenshot%20recipes-ReactJs/landing_page_squqbx.png" alt="landing" width=100%></td>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404173/porto/Recipenation/searching_haatpd.png" alt="Search" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992509/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-search-menu-2023-06-06-03_14_52_ui0ovt.png" alt="Search" width=100%/></td>
   </tr>
   <tr>
     <td>Landing Page</td>
@@ -131,7 +131,7 @@ REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
   </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404175/porto/Recipenation/detail_w2pzvi.png" width=100%></td>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404171/porto/Recipenation/addrecipe_zc7akz.png" alt="Add Recipe" width=100%/></td>
+    <td><image src="" alt="Add Recipe" width=100%/></td>
   </tr>
   <tr>
     <td>Detail Recipe</td>
