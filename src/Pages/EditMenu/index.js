@@ -2,11 +2,12 @@ import { React, useState, useEffect } from 'react'
 import Footer from "../../components/footer";
 import profile from "../../assets/assets/img/profile.jpg";
 import axios from 'axios'
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { editMenu } from '../../Storages/Actions/menu'
 
 export default function EditMenu() {
+  const photoUser = localStorage.getItem("photo");
 
   const { id } = useParams()
 
@@ -85,24 +86,24 @@ export default function EditMenu() {
                 <div className="collapse navbar-collapse" id="mynavbar">
                   <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                      <a className="nav-link active" href="javascript:void(0)">
+                      <Link className="nav-link active" to={'/home'}>
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="javascript:void(0)">
+                      <Link className="nav-link" to={'/add-menu'}>
                         Add recipe
-                      </a>
+                      </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="javascript:void(0)">
+                      <Link className="nav-link" to={'/search-menu'}>
                         Search menu
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <div className="image-profile d-flex">
                     <div className="line-left"></div>
-                    <img src={profile} alt="" width="64px" height="64px" />
+                    <img src={photoUser ? photoUser : profile} alt="" width="64px" height="64px" />
                   </div>
                 </div>
               </div>
