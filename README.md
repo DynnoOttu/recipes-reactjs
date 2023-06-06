@@ -109,37 +109,42 @@ REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
 <p align="center" display=flex>
    
 <table>
- 
+    <tr>
+    <td>Login Page</td>
+    <td>Register Page</td>
+  </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992174/screenshot%20recipes-ReactJs/login_p9btbe.png" alt="Login Page" width=100%></td>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992348/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-register-2023-06-06-03_12_09_pnwvc1.png" width=100%/></td>
   </tr>
-   <tr>
-    <td>Login Page</td>
-    <td>Register Page</td>
+  
+    <tr>
+    <td>Landing Page</td>
+    <td>Search Page</td>
   </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992431/screenshot%20recipes-ReactJs/landing_page_squqbx.png" alt="landing" width=100%></td>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992509/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-search-menu-2023-06-06-03_14_52_ui0ovt.png" alt="Search" width=100%/></td>
   </tr>
-  <tr>
-    <td>Landing Page</td>
-    <td>Search Page</td>
+
+    <tr>
+    <td>Detail Recipe</td>
+    <td>Add Recipe</td>
   </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992913/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-detail-menu-46-2023-06-06-03_21_25_teflwr.png" width=100%></td>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992979/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-add-menu-2023-06-06-03_22_14_ot79rt.png" alt="Add Recipe" width=100%/></td>
   </tr>
-  <tr>
-    <td>Detail Recipe</td>
-    <td>Add Recipe</td>
-  </tr>
-  <tr>
-    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992977/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-profile-2023-06-06-03_22_38_tdtcst.png" width=100%></td>
-  </tr>
-  <tr>
+
+    <tr>
+    <td>Edit Recipes</td>
     <td>Profile</td>
   </tr>
+  <tr>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1686013641/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-edit-menu-46-2023-06-06-09_06_28_x8q5z8.png" width=100%></td>
+      <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992977/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-profile-2023-06-06-03_22_38_tdtcst.png" width=100%></td>
+  </tr>
+
 </table>
       
 </p>
