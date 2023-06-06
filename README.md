@@ -3,9 +3,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="">
-    <img src="(https://res.cloudinary.com/dzs9aijqab/image/upload/v1685991518/screenshot%20recipes-ReactJs/logo_qrorgc_ybd4m9.svg)" alt="Logo" width="150px">
-  </a>
 
   <h3 align="center">Recipes Web</h3>
 </div>
@@ -123,22 +120,22 @@ REACT_APP_BASE_URL= https://real-teal-dragonfly-gear.cyclic.app
   </tr>
   <tr>
     <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992431/screenshot%20recipes-ReactJs/landing_page_squqbx.png" alt="landing" width=100%></td>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404173/porto/Recipenation/searching_haatpd.png" alt="Search" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992509/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-search-menu-2023-06-06-03_14_52_ui0ovt.png" alt="Search" width=100%/></td>
   </tr>
   <tr>
     <td>Landing Page</td>
     <td>Search Page</td>
   </tr>
   <tr>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404175/porto/Recipenation/detail_w2pzvi.png" width=100%></td>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404171/porto/Recipenation/addrecipe_zc7akz.png" alt="Add Recipe" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992913/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-detail-menu-46-2023-06-06-03_21_25_teflwr.png" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992979/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-add-menu-2023-06-06-03_22_14_ot79rt.png" alt="Add Recipe" width=100%/></td>
   </tr>
   <tr>
     <td>Detail Recipe</td>
     <td>Add Recipe</td>
   </tr>
   <tr>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661831394/porto/Recipenation/screenshot_vyrorb.png" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685992977/screenshot%20recipes-ReactJs/screencapture-recipes-reactjs-vercel-app-profile-2023-06-06-03_22_38_tdtcst.png" width=100%></td>
   </tr>
   <tr>
     <td>Profile</td>
@@ -162,13 +159,13 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Recipenation`](https://github.com/ilhamyusuf27/rest-api-cafe-bunga)
+:rocket: [`Backend Recipes`](https://github.com/DynnoOttu/Recipes-API)
 
-:rocket: [`Frontend Recipenation`](https://github.com/ilhamyusuf27/React-FrontEnd-Recipenation)
+:rocket: [`Frontend Recipes Web`](https://github.com/DynnoOttu/recipes-reactjs)
 
-:rocket: [`API`](https://recipenation-app.herokuapp.com/)
+:rocket: [`API`](https://real-teal-dragonfly-gear.cyclic.app)
 
-:rocket: [`Demo Recipenation`](https://recipenation-app.web.app/)
+:rocket: [`Demo Recipenation`](https://recipes-reactjs.vercel.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -178,10 +175,10 @@ Contributions are what make the open source community such an amazing place to b
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/ilhamyusuf27">
-          <img width="100" src="https://avatars.githubusercontent.com/u/43610978?s=400&u=76c4f9fc270cb7cb6e82570927b32973161aa970&v=4" alt="Fandi"><br/>
-          <sub><b>Ilham Yusuf Alghani</b></sub> <br/>
-          <sub>Front End Web Developer | Back End Web Developer</sub>
+        <a href="https://github.com/DynnoOttu">
+          <img width="100" src="https://res.cloudinary.com/dzs9aijqab/image/upload/v1685061849/recipes/kbgsfitfo3x2aikonhng.jpg" alt="Dynno"><br/>
+          <sub><b>Dynno Yohanis Ottu</b></sub> <br/>
+          <sub>Back End Web Developer | Front End Web Developer | Mobile Devoloper</sub>
         </a>
       </td>
   </table>
